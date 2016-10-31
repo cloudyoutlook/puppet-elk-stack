@@ -10,5 +10,6 @@ node default {
   include java
   include elasticsearch
   include kibana
+  include nginx
 
 }
