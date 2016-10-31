@@ -1,11 +1,14 @@
 node default {
 
-class {
-    "elk":
+  class {
+    "elasticsearch":
     # prefered_packages_list  => ["java-1.8.0-openjdk"],
     # other variables overriding defaults go here...
   }
 
   # Modules
-  include elk
+  include java
+  include elasticsearch
+  include kibana
+
 }

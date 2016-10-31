@@ -1,4 +1,4 @@
-class elk::install {
+class elasticsearch::install {
 
   # configure the repo we want to use
   yumrepo { 'elasticsearch_repo':
@@ -10,21 +10,16 @@ class elk::install {
   }
 
   package { 
-    $elk::prefered_packages_list:
+    $elasticsearch::prefered_packages_list:
       ensure => latest,
       require => Yumrepo['elasticsearch_repo'],
-  }
-
-  exec { 'switch_java_version':
-    command => 'alternatives --set java /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java',
-    path    => '/usr/local/bin/:/usr/sbin/:/bin/',
   }
 
 file { '/etc/elasticsearch/elasticsearch.yml':
   ensure  => file,
   mode    => '0750',
   group   => 'elasticsearch',
-  source  => 'puppet:///modules/elk/elasticsearch.yml',
+  source  => 'puppet:///modules/elasticsearch/elasticsearch.yml',
   require => Package['elasticsearch'],
 }
 
