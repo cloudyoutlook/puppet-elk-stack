@@ -11,5 +11,6 @@ node default {
   include elasticsearch
   include kibana
   include nginx
+  include logstash
 
 }

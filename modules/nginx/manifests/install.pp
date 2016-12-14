@@ -19,13 +19,13 @@ class nginx::install {
     require => Package['httpd-tools'],
   }
 
-#  file { '/etc/nginx/nginx.conf':
-#    ensure  => file,
-#    mode    => '0664',
-#    group   => 'root',
-#    source  => 'puppet:///modules/nginx/nginx.conf',
-#    require => Package['nginx'],
-#  }
+  file { '/etc/nginx/nginx.conf':
+    ensure  => file,
+    mode    => '0664',
+    group   => 'root',
+    source  => 'puppet:///modules/nginx/nginx.conf',
+    require => Package['nginx'],
+  }
 
   service {
     "nginx":

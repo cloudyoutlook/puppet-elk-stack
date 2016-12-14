@@ -35,7 +35,9 @@
 #
 # Copyright 2011 Your name here, unless otherwise noted.
 #
-class logstash {
+class logstash
 
-
+{
+  # Includes
+  include logstash::install
 }
